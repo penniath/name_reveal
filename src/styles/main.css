@@ -1263,11 +1263,13 @@ canvas {
 
 .diferencias-imagen {
     position: relative;
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     height: 300px;
     border: 3px solid var(--color-border);
     border-radius: 15px;
     overflow: hidden;
+    margin: 0 auto;
 }
 
 .diferencias-fondo {
@@ -1321,8 +1323,18 @@ canvas {
 /* Responsivo para móviles */
 @media (max-width: 768px) {
     .diferencias-imagen {
-        width: 280px;
+        width: 100%;
+        max-width: 280px;
         height: 280px;
+    }
+    
+    .diferencias-imagenes {
+        padding: 0 10px;
+    }
+    
+    .dif-elemento {
+        width: 30px;
+        height: 30px;
     }
     
     .sopa-celda {

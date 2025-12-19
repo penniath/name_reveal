@@ -157,16 +157,22 @@ export class Router {
 
         // Mostrar pantalla de resultados
         const nombreRevelado = document.getElementById('nombre-revelado');
-        nombreRevelado.textContent = this.nombreBebe;
+        if (nombreRevelado) {
+            nombreRevelado.textContent = this.nombreBebe;
+        }
 
         const tiempoTotal = document.getElementById('tiempo-total');
-        tiempoTotal.textContent = this.timer.formatTime(this.jugador.tiempo_total);
-
-        const nombreJugadorFinal = document.getElementById('nombre-jugador-final');
-        nombreJugadorFinal.textContent = this.jugador.nombre;
+        if (tiempoTotal) {
+            const minutos = Math.floor(this.jugador.tiempo_total / 60000);
+            const segundos = Math.floor((this.jugador.tiempo_total % 60000) / 1000);
+            tiempoTotal.textContent = `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+        }
 
         // Cambiar a pantalla de resultados
         document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('activa'));
-        document.getElementById('pantalla-resultados').classList.add('activa');
+        const pantallaResultados = document.getElementById('pantalla-resultados');
+        if (pantallaResultados) {
+            pantallaResultados.classList.add('activa');
+        }
     }
 }

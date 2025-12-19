@@ -1,4 +1,4 @@
-# 🎮 Juego de Revelación - LUKEN
+# 🎮 Juego de Revelación
 
 Aplicación web interactiva con 5 minijuegos optimizados para móvil que revelan progresivamente el nombre del bebé letra por letra.
 
@@ -12,11 +12,12 @@ Aplicación web interactiva con 5 minijuegos optimizados para móvil que revelan
 
 ## 🎯 Minijuegos
 
-1. **Memoria** - Encuentra todas las parejas de cartas → Revela la **L**
-2. **Trivia** - Responde preguntas sobre la familia → Revela la **U**
-3. **Simón Dice** - Memoriza y repite secuencias de colores → Revela la **K**
-4. **Objetivos** - Toca los círculos antes de que desaparezcan → Revela la **E**
-5. **¡Ordena!** - Ordena las letras L-U-K-E-N para formar el nombre → Revela la **N**
+1. **Memoria** - Encuentra todas las parejas de cartas
+2. **Trivia** - Responde preguntas sobre la familia
+3. **Simón Dice** - Memoriza y repite secuencias de colores
+4. **Sopa de Letras** - Encuentra la palabra FAMILIA
+5. **Diferencias** - Encuentra todas las diferencias
+6. **¡Ordena!** - Ordena las letras para formar el nombre secreto
 
 ## 🚀 Instalación
 
@@ -49,7 +50,7 @@ Sube el proyecto a GitHub y activa GitHub Pages desde la rama `main`. El workflo
 Edita el archivo `src/services/supabase.js` línea 4:
 
 ```javascript
-this.nombreBebe = 'TUNOMBRE'; // Cambia LUKEN por el nombre que quieras
+this.nombreBebe = 'TUNOMBRE'; // Cambia por el nombre que quieras (5 letras)
 ```
 
 **Importante**: 
@@ -137,4 +138,4 @@ Este proyecto es de código abierto. Siéntete libre de modificarlo y adaptarlo 
 
 ---
 
-**Desarrollado con ❤️ para revelar el nombre de LUKEN**
+**Desarrollado con ❤️ para una revelación especial**
