@@ -117,7 +117,7 @@ class App {
     }
 
     reiniciarJuego() {
-        localStorage.removeItem('jugadorId');
+        localStorage.clear();
         this.jugadorActual = null;
         this.router = null;
         this.timer.stop();

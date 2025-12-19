@@ -125,9 +125,6 @@ export class Nivel7Trivia {
         } else {
             botonElement.classList.add('incorrecto');
             
-            // Mostrar la respuesta correcta
-            opciones[pregunta.respuestaCorrecta].classList.add('correcto');
-            
             setTimeout(() => {
                 this.mostrarResultado();
             }, 2000);
