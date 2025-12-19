@@ -1,0 +1,18 @@
+{
+  "name": "name-reveal",
+  "version": "1.0.0",
+  "description": "Juego web interactivo para revelar el nombre del bebé",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "preview": "open http://localhost:8000"
+  },
+  "keywords": [
+    "baby",
+    "game",
+    "reveal",
+    "minigames"
+  ],
+  "author": "",
+  "license": "MIT"
+}

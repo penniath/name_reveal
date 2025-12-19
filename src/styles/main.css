@@ -1,0 +1,1352 @@
+/* Variables CSS */
+:root {
+    --color-primary: #FF6B9D;
+    --color-secondary: #C44569;
+    --color-success: #5FD068;
+    --color-bg: #FFF5F7;
+    --color-text: #2C3E50;
+    --color-text-light: #7F8C8D;
+    --color-border: #E1E8ED;
+    --color-white: #FFFFFF;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, var(--color-bg) 0%, #FFE5EC 100%);
+    color: var(--color-text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Pantallas */
+.pantalla {
+    display: none;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.pantalla.activa {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Container */
+.container {
+    background: var(--color-white);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+}
+
+/* Tipografía */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: var(--color-primary);
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: var(--color-secondary);
+}
+
+p {
+    font-size: 1.1em;
+    color: var(--color-text-light);
+    margin-bottom: 20px;
+}
+
+/* Formulario */
+.formulario {
+    margin-top: 30px;
+}
+
+input[type="text"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px 20px;
+    font-size: 1.1em;
+    border: 2px solid var(--color-border);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+/* Botones */
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: var(--color-white);
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2em;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Header del Nivel */
+.header-nivel {
+    background: var(--color-white);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.progreso-container {
+    flex: 1;
+    min-width: 200px;
+}
+
+#nivel-actual-texto {
+    display: block;
+    font-weight: bold;
+    color: var(--color-secondary);
+    margin-bottom: 10px;
+}
+
+.barra-progreso {
+    background: var(--color-border);
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.barra-progreso-fill {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    height: 100%;
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.timer {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--color-primary);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Instrucciones del Nivel */
+.instrucciones-nivel {
+    background: var(--color-white);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+}
+
+/* Contenedor de Minijuegos */
+.contenedor-minijuego {
+    background: var(--color-white);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    min-height: 400px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.activo {
+    display: flex;
+}
+
+.modal-contenido {
+    background: var(--color-white);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    max-width: 500px;
+    box-shadow: var(--shadow-lg);
+    animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.letra-grande {
+    font-size: 6em;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin: 20px 0;
+    animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Pantalla de Resultados */
+.nombre-revelado {
+    font-size: 4em;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin: 30px 0;
+    letter-spacing: 5px;
+    animation: revelar 1s ease;
+}
+
+@keyframes revelar {
+    from {
+        opacity: 0;
+        letter-spacing: 20px;
+    }
+    to {
+        opacity: 1;
+        letter-spacing: 5px;
+    }
+}
+
+.estadisticas {
+    background: var(--color-bg);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.estadisticas p {
+    margin: 10px 0;
+    color: var(--color-text);
+}
+
+.estadisticas span {
+    font-weight: bold;
+    color: var(--color-secondary);
+}
+
+/* Estilos comunes para minijuegos */
+.game-grid {
+    display: grid;
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.game-button {
+    background: var(--color-white);
+    border: 2px solid var(--color-border);
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1.1em;
+}
+
+.game-button:hover {
+    border-color: var(--color-primary);
+    transform: scale(1.05);
+}
+
+.game-button.correcto {
+    background: var(--color-success);
+    color: var(--color-white);
+    border-color: var(--color-success);
+}
+
+.game-button.incorrecto {
+    background: #E74C3C;
+    color: var(--color-white);
+    border-color: #E74C3C;
+}
+
+/* Canvas para juegos */
+canvas {
+    border: 2px solid var(--color-border);
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    cursor: crosshair;
+}
+
+/* Responsive - Mobile First */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .pantalla {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 20px 15px;
+        border-radius: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .header-nivel {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .nombre-revelado {
+        font-size: 2em;
+        letter-spacing: 2px;
+    }
+
+    .letra-grande {
+        font-size: 3.5em;
+    }
+
+    .modal-contenido {
+        margin: 15px;
+        padding: 25px 15px;
+        max-width: 90%;
+    }
+
+    .btn-primary {
+        padding: 12px 30px;
+        font-size: 1.1em;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    input[type="text"] {
+        font-size: 16px; /* Evita zoom en iOS */
+        max-width: 100%;
+    }
+
+    /* Simón Dice - Mobile */
+    .simon-board {
+        grid-template-columns: repeat(2, 120px);
+        grid-template-rows: repeat(2, 120px);
+        gap: 10px;
+    }
+
+    .simon-btn {
+        border-radius: 12px;
+    }
+
+    .simon-mensaje {
+        font-size: 1em;
+        min-height: 25px;
+    }
+
+    /* Puzzle - Legacy */
+    .puzzle-grid {
+        padding: 3px;
+        gap: 3px;
+    }
+
+    .puzzle-tile {
+        width: 80px;
+        height: 80px;
+        font-size: 1.8em;
+    }
+
+    .memory-grid {
+        grid-template-columns: repeat(4, 70px);
+        gap: 10px;
+    }
+
+    .memory-card {
+        width: 70px;
+        height: 70px;
+        font-size: 2.5em;
+    }
+
+    .imagen-diferencias {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        aspect-ratio: 4/3;
+    }
+
+    .imagenes-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    canvas {
+        max-width: 100%;
+        height: auto;
+        touch-action: none;
+    }
+
+    #canvas-objetivos {
+        width: 100%;
+        height: 300px;
+    }
+
+    #canvas-laberinto {
+        width: 100%;
+        height: auto;
+    }
+
+    .sopa-grid {
+        grid-template-columns: repeat(10, 34px);
+        grid-template-rows: repeat(10, 34px);
+        gap: 3px;
+    }
+
+    .sopa-cell {
+        width: 34px;
+        height: 34px;
+        font-size: 1em;
+    }
+
+    .instruccion-sopa {
+        font-size: 0.85em;
+        padding: 0 10px;
+    }
+
+    .letra-draggable {
+        width: 60px;
+        height: 60px;
+        font-size: 2em;
+    }
+
+    .slot-letra {
+        width: 60px;
+        height: 60px;
+    }
+
+    .controles {
+        margin-top: 15px;
+    }
+
+    .btn-control {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3em;
+    }
+}
+
+/* Ajustes específicos para pantallas muy pequeñas */
+@media (max-width: 375px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .simon-board {
+        grid-template-columns: repeat(2, 100px);
+        grid-template-rows: repeat(2, 100px);
+        gap: 8px;
+    }
+
+    .simon-nivel {
+        font-size: 1.1em;
+    }
+
+    .puzzle-tile {
+        width: 70px;
+        height: 70px;
+        font-size: 1.5em;
+    }
+
+    .memory-grid {
+        grid-template-columns: repeat(4, 60px);
+        gap: 8px;
+    }
+
+    .memory-card {
+        width: 60px;
+        height: 60px;
+        font-size: 2em;
+    }
+
+    .sopa-grid {
+        grid-template-columns: repeat(10, 30px);
+        grid-template-rows: repeat(10, 30px);
+        gap: 2px;
+    }
+
+    .sopa-cell {
+        width: 30px;
+        height: 30px;
+        font-size: 0.95em;
+    }
+
+    .instruccion-sopa {
+        font-size: 0.8em;
+    }
+
+    .letra-draggable,
+    .slot-letra {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8em;
+    }
+}
+
+/* Optimizaciones táctiles */
+@media (hover: none) and (pointer: coarse) {
+    /* Dispositivos táctiles */
+    .game-button,
+    .btn-control,
+    .puzzle-tile:not(.empty),
+    .memory-card,
+    .opcion-btn {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+
+    /* Aumentar área táctil */
+    .puzzle-tile,
+    .memory-card,
+    .sopa-cell {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+/* Prevenir zoom en inputs en iOS */
+@supports (-webkit-touch-callout: none) {
+    input, select, textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* Estilos específicos de minijuegos */
+
+/* Nivel 1: Simón Dice */
+.simon-container {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.simon-info {
+    margin-bottom: 30px;
+}
+
+.simon-nivel {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--color-secondary);
+    margin-bottom: 10px;
+}
+
+.simon-mensaje {
+    font-size: 1.1em;
+    color: var(--color-text-light);
+    min-height: 30px;
+    font-weight: 500;
+}
+
+.simon-board {
+    display: grid;
+    grid-template-columns: repeat(2, 150px);
+    grid-template-rows: repeat(2, 150px);
+    gap: 15px;
+    justify-content: center;
+    margin: 30px auto;
+}
+
+.simon-btn {
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    user-select: none;
+    position: relative;
+}
+
+.simon-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0);
+    transition: background 0.2s;
+}
+
+.simon-btn:not(.deshabilitado):hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.simon-btn:not(.deshabilitado):active {
+    transform: scale(0.95);
+}
+
+.simon-btn.deshabilitado {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.simon-rojo {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.simon-verde {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.simon-azul {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.simon-amarillo {
+    background: linear-gradient(135deg, #f1c40f, #f39c12);
+}
+
+.simon-btn.activo {
+    filter: brightness(3) saturate(2) !important;
+    transform: scale(1.3) !important;
+    transition: none !important;
+    opacity: 1 !important;
+    border: 4px solid white !important;
+    z-index: 10 !important;
+}
+
+.simon-rojo.activo {
+    box-shadow: 0 0 80px 30px rgba(231, 76, 60, 1) !important;
+    background: #ff6b6b !important;
+}
+
+.simon-verde.activo {
+    box-shadow: 0 0 80px 30px rgba(46, 204, 113, 1) !important;
+    background: #51ff51 !important;
+}
+
+.simon-azul.activo {
+    box-shadow: 0 0 80px 30px rgba(52, 152, 219, 1) !important;
+    background: #5dbaff !important;
+}
+
+.simon-amarillo.activo {
+    box-shadow: 0 0 80px 30px rgba(241, 196, 15, 1) !important;
+    background: #ffeb3b !important;
+}
+
+.simon-controles {
+    margin-top: 30px;
+}
+
+/* Nivel 1: Puzzle (legacy - ya no se usa pero mantengo por si acaso) */
+.puzzle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.puzzle-grid {
+    display: grid;
+    gap: 5px;
+    background: var(--color-border);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.puzzle-tile {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    user-select: none;
+}
+
+.puzzle-tile:hover:not(.empty) {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.puzzle-tile.empty {
+    background: rgba(255, 255, 255, 0.3);
+    cursor: default;
+}
+
+/* Nivel 2: Memory */
+.memory-container {
+    display: flex;
+    justify-content: center;
+}
+
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 15px;
+}
+
+.memory-card {
+    width: 100px;
+    height: 100px;
+    background: var(--color-primary);
+    color: white;
+    font-size: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    user-select: none;
+    box-shadow: var(--shadow);
+}
+
+.memory-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.memory-card.volteada {
+    background: var(--color-white);
+    border: 3px solid var(--color-primary);
+}
+
+.memory-card.encontrado {
+    background: var(--color-success);
+    border-color: var(--color-success);
+    opacity: 0.7;
+}
+
+/* Nivel 3: Diferencias */
+.diferencias-container {
+    text-align: center;
+}
+
+.contador-diferencias {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--color-secondary);
+}
+
+.imagenes-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.imagen-wrapper {
+    text-align: center;
+}
+
+.imagen-diferencias {
+    position: relative;
+    box-shadow: var(--shadow-lg);
+}
+
+.imagen-diferencias.clickeable {
+    cursor: crosshair;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.2); }
+}
+
+/* Nivel 4: Objetivos */
+.objetivos-container {
+    text-align: center;
+}
+
+.stats {
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--color-secondary);
+}
+
+/* Nivel 5: Sopa de Letras */
+.sopa-container {
+    text-align: center;
+}
+
+.palabra-buscar {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.palabra-buscar strong {
+    color: var(--color-primary);
+    font-size: 1.2em;
+}
+
+.instruccion-sopa {
+    font-size: 0.9em;
+    color: var(--color-text-light);
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.sopa-grid {
+    display: grid;
+    gap: 2px;
+    margin: 0 auto;
+    width: fit-content;
+    background: var(--color-border);
+    padding: 5px;
+    border-radius: 10px;
+    touch-action: none;
+    user-select: none;
+}
+
+.sopa-cell {
+    width: 40px;
+    height: 40px;
+    background: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.1s, transform 0.1s, color 0.1s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.sopa-cell:hover {
+    background: var(--color-bg);
+}
+
+.sopa-cell:active {
+    transform: scale(0.95);
+}
+
+.sopa-cell.seleccionada {
+    background: var(--color-primary);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(255, 107, 157, 0.3);
+}
+
+.sopa-cell.encontrada {
+    background: var(--color-success);
+    color: white;
+    animation: encontrada-pulse 0.6s ease;
+}
+
+.sopa-cell.incorrecto {
+    background: #ffebee;
+    animation: shake-small 0.3s ease;
+}
+
+@keyframes encontrada-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+@keyframes shake-small {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    75% { transform: translateX(3px); }
+}
+
+/* Nivel 6: Laberinto */
+.laberinto-container {
+    text-align: center;
+}
+
+.laberinto-container .instrucciones {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: var(--color-text-light);
+}
+
+.controles {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.controles > div {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-control {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5em;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: all 0.2s;
+}
+
+.btn-control:hover {
+    background: var(--color-secondary);
+    transform: scale(1.1);
+}
+
+.btn-control:active {
+    transform: scale(0.95);
+}
+
+/* Nivel 7: Trivia */
+.trivia-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.progreso-trivia {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.progreso-trivia p {
+    font-weight: bold;
+    color: var(--color-secondary);
+    margin-bottom: 10px;
+}
+
+.pregunta-trivia {
+    font-size: 1.4em;
+    margin-bottom: 30px;
+    text-align: center;
+    color: var(--color-text);
+}
+
+.opciones-trivia {
+    display: grid;
+    gap: 15px;
+}
+
+.opcion-btn {
+    background: var(--color-white);
+    border: 2px solid var(--color-border);
+    padding: 20px;
+    font-size: 1.1em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: left;
+}
+
+.opcion-btn:hover:not(:disabled) {
+    border-color: var(--color-primary);
+    transform: translateX(10px);
+}
+
+.opcion-btn:disabled {
+    cursor: not-allowed;
+}
+
+.opcion-btn.correcto {
+    background: var(--color-success);
+    color: white;
+    border-color: var(--color-success);
+}
+
+.opcion-btn.incorrecto {
+    background: #E74C3C;
+    color: white;
+    border-color: #E74C3C;
+}
+
+.trivia-resultado {
+    text-align: center;
+    padding: 40px;
+}
+
+.puntuacion-grande {
+    font-size: 3em;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin: 20px 0;
+}
+
+.btn-secondary {
+    background: var(--color-text-light);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2em;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
+    font-weight: bold;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    background: var(--color-text);
+}
+
+/* Nivel 8: Ordenar Letras */
+.ordenar-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.instrucciones-ordenar {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    text-align: center;
+    color: var(--color-secondary);
+    font-weight: bold;
+}
+
+.letras-disponibles {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 30px;
+    background: var(--color-bg);
+    border-radius: 15px;
+    margin-bottom: 30px;
+    min-height: 100px;
+}
+
+.letra-draggable {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    font-size: 2.5em;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: move;
+    box-shadow: var(--shadow);
+    transition: all 0.3s;
+    user-select: none;
+}
+
+.letra-draggable:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg);
+}
+
+.letra-draggable.dragging {
+    opacity: 0.5;
+}
+
+.zona-ordenar {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 30px;
+    background: var(--color-white);
+    border: 3px dashed var(--color-border);
+    border-radius: 15px;
+    margin-bottom: 30px;
+    min-height: 120px;
+}
+
+.slot-letra {
+    width: 70px;
+    height: 70px;
+    border: 3px dashed var(--color-border);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.slot-letra.drag-over {
+    background: var(--color-bg);
+    border-color: var(--color-primary);
+    transform: scale(1.05);
+}
+
+.slot-letra.correcto {
+    border-color: var(--color-success);
+    background: rgba(95, 208, 104, 0.1);
+    animation: bounce 0.6s ease;
+}
+
+.slot-letra.error-shake {
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.botones-ordenar {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.mensaje-verificacion {
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.mensaje-verificacion.error {
+    background: #ffe5e5;
+    color: #c0392b;
+    border: 2px solid #e74c3c;
+}
+
+.mensaje-verificacion.success {
+    background: #e5ffe5;
+    color: #27ae60;
+    border: 2px solid #5fd068;
+}
+
+/* Estilos adicionales para Sopa de Letras móvil */
+.sopa-info {
+    margin-bottom: 20px;
+}
+
+.sopa-instruccion {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.sopa-ayuda {
+    color: var(--color-text-light);
+    font-size: 0.9em;
+}
+
+.sopa-celda {
+    width: 32px;
+    height: 32px;
+    background: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.95em;
+    border-radius: 5px;
+    touch-action: none;
+    user-select: none;
+    transition: all 0.15s;
+}
+
+.sopa-celda.seleccionada {
+    background: var(--color-primary);
+    color: white;
+    transform: scale(1.1);
+}
+
+.sopa-celda.correcta {
+    background: var(--color-success);
+    color: white;
+}
+
+.sopa-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 32px);
+    gap: 3px;
+    margin: 0 auto;
+    width: fit-content;
+    background: var(--color-border);
+    padding: 8px;
+    border-radius: 10px;
+    touch-action: none;
+    user-select: none;
+}
+
+/* Estilos para juego de Diferencias móvil */
+.diferencias-container {
+    text-align: center;
+}
+
+.diferencias-info {
+    margin-bottom: 20px;
+}
+
+.diferencias-contador {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.diferencias-imagenes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.diferencias-imagen {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border: 3px solid var(--color-border);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.diferencias-fondo {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    opacity: 0.3;
+}
+
+.dif-elemento {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.dif-cuadrado {
+    border-radius: 5px;
+}
+
+.dif-triangulo {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 40px solid;
+}
+
+.dif-diferencia {
+    cursor: pointer;
+    animation: pulse 2s infinite;
+}
+
+.dif-diferencia:hover {
+    transform: scale(1.2);
+}
+
+.dif-diferencia.encontrada {
+    animation: none;
+    transform: scale(1.3);
+    border: 3px solid white;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .diferencias-imagen {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .sopa-celda {
+        width: 28px;
+        height: 28px;
+        font-size: 0.85em;
+    }
+    
+    .sopa-grid {
+        grid-template-columns: repeat(10, 28px);
+        gap: 2px;
+        padding: 6px;
+    }
+}
+
+/* Utilidades */
+.text-center {
+    text-align: center;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}

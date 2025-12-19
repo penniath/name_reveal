@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#FF6B9D">
+    <meta name="description" content="Juego interactivo para móvil - 5 minijuegos para revelar el nombre">
+    <title>Juego de Revelación 🎮</title>
+    <link rel="stylesheet" href="src/styles/main.css">
+</head>
+<body>
+    <!-- Pantalla de Nivel -->
+    <div id="pantalla-nivel" class="pantalla activa">
+        <div class="header-nivel">
+            <div class="progreso-container">
+                <span id="nivel-actual-texto">Nivel 1 de 6</span>
+                <div class="barra-progreso">
+                    <div id="barra-progreso-fill" class="barra-progreso-fill"></div>
+                </div>
+            </div>
+            <div id="timer" class="timer">00:00</div>
+        </div>
+        
+        <div class="instrucciones-nivel">
+            <h2 id="titulo-nivel"></h2>
+            <p id="descripcion-nivel"></p>
+        </div>
+
+        <div id="contenedor-minijuego" class="contenedor-minijuego">
+            <!-- Los minijuegos se cargarán aquí dinámicamente -->
+        </div>
+    </div>
+
+    <!-- Pantalla de Resultados -->
+    <div id="pantalla-resultados" class="pantalla">
+        <div class="container">
+            <h1>🎉 ¡Felicitaciones!</h1>
+            <div class="nombre-revelado" id="nombre-revelado"></div>
+            <div class="estadisticas">
+                <p>Tiempo Total: <span id="tiempo-total">00:00</span></p>
+            </div>
+            <button id="btn-reiniciar" class="btn-primary">Jugar de Nuevo</button>
+        </div>
+    </div>
+
+    <!-- Modal de Letra Desbloqueada -->
+    <div id="modal-letra" class="modal">
+        <div class="modal-contenido">
+            <h2>¡Letra Desbloqueada!</h2>
+            <div class="letra-grande" id="letra-desbloqueada"></div>
+            <p id="mensaje-letra"></p>
+            <button id="btn-siguiente-nivel" class="btn-primary">Siguiente Nivel</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="src/app.js"></script>
+</body>
+</html>
